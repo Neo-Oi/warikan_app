@@ -1,6 +1,6 @@
 <h1>割り勘アプリ</h1>
 
-<%= form_with url: root_path, method: :get, local: true do %>
+<%= form_with url: "/bills", method: :post do %>
 
   <div>
     <%= label_tag :amount, "合計金額" %>
@@ -21,5 +21,17 @@
   <h2>
     1人あたり <%= @result %> 円
   </h2>
+
+<% end %>
+
+<h2>履歴</h2>
+
+<% @bills.each do |bill| %>
+
+  <p>
+    合計: <%= bill.amount %>円 /
+    人数: <%= bill.people %>人 /
+    1人: <%= bill.result %>円
+  </p>
 
 <% end %>
