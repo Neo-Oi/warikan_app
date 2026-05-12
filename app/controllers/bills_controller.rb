@@ -7,24 +7,19 @@ class BillsController < ApplicationController
       amount = params[:amount].to_i
       people = params[:people].to_i
 
-      if people <= 0
-        redirect_to root_path, alert: "人数は1以上です。"
-        return
-      end
-      if amount <= 0
-        redirect_to root_path, alert: "金額は１以上です。"
-        return
-      end
 
-
-      @result = amount / people
-
-      Bill.create(
+      bill = Bill.new(
         amount: amount,
         people: people,
-        result: @result
       )
-      redirect_to root_path
-    end
+
+      if bill.valid?
+        bill.result = amount/people
+        bill.save
+        
+        redirect_to root_path,notice:"保存しました"
+      else
+        redirect_to root_path,alert:"入力した値が不正です"
+      end
   end
 end
