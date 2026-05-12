@@ -1,0 +1,25 @@
+<h1>割り勘アプリ</h1>
+
+<%= form_with url: root_path, method: :get, local: true do %>
+
+  <div>
+    <%= label_tag :amount, "合計金額" %>
+    <%= number_field_tag :amount %> 
+  </div>
+
+  <div>
+    <%= label_tag :people, "人数" %>
+    <%= number_field_tag :people %>
+  </div>
+
+  <%= submit_tag "計算" %>
+
+<% end %>
+
+<% if @result.present? %>
+
+  <h2>
+    1人あたり <%= @result %> 円
+  </h2>
+
+<% end %>
