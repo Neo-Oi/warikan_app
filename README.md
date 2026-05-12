@@ -1,24 +1,33 @@
-# README
+# Warikan App（割り勘アプリ）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails + PostgreSQL + Docker を使ったシンプルな割り勘計算アプリです。
 
-Things you may want to cover:
+---
 
-* Ruby version
+## 機能概要
 
-* System dependencies
+- 金額と人数を入力して割り勘計算
+- 1人あたりの支払い金額を自動計算
+- 入力値のバリデーション（Modelで管理）
+- 履歴の保存・一覧表示
+- flashメッセージによる通知表示（notice / alert）
 
-* Configuration
+---
 
-* Database creation
+## 使用技術
 
-* Database initialization
+- Ruby 3.3
+- Rails 8
+- PostgreSQL
+- Docker / Docker Compose
+- Puma
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+## セットアップ
 
-* Deployment instructions
+### 1. リポジトリ取得
 
-* ...
+```bash
+git clone <repository-url>
+cd warikan_app
