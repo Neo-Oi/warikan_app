@@ -4,9 +4,18 @@ class BillsController < ApplicationController
   end
 
   def create
-    if params[:amount].present? && params[:people].present?
       amount = params[:amount].to_i
       people = params[:people].to_i
+
+      if people <= 0
+        redirect_to root_path, alert: "人数は1以上です。"
+        return
+      end
+      if amount <= 0
+        redirect_to root_path, alert: "金額は１以上です。"
+        return
+      end
+
 
       @result = amount / people
 
